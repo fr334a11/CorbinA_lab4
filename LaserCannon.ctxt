@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=LaserCannon()
+comment1.params=max\ min
+comment1.target=double\ randomTime(double,\ double)
+comment1.text=\r\n\ returns\ a\ very\ small\ random\ time\r\n
+comment2.params=
+comment2.target=double\ getTime()
+comment2.text=\r\n\ gets\ time\ from\ user\ between\ shots\r\n
+comment3.params=
+comment3.target=void\ pointAtObject()
+comment3.text=\r\n\ get\ degree\ from\ user\r\n
+comment4.params=
+comment4.target=int\ distanceToMoon()
+comment4.text=\r\n\ returns\ the\ distance\ the\ moon\ fragment\ is\ from\ the\ earth\r\n
+comment5.params=distanceOne\ distanceTwo\ leAngle
+comment5.target=double\ calcDistance(double,\ double,\ double)
+comment5.text=\r\n\ calculated\ the\ distance\ between\ 2\ points\r\n
+comment6.params=d1\ d2\ angle
+comment6.target=double\ speed(double,\ double,\ double)
+comment6.text=\r\n\ Calcs\ the\ speed\ of\ the\ moon\r\n
+comment7.params=
+comment7.target=double\ shootLaser()
+comment7.text=\r\n\ calls\ and\ returns\ speed\ function,\ i\ guess\ because\ "shootLaser"\ sounds\ cooler\r\n
+numComments=8
