@@ -86,7 +86,10 @@ public class Company {
         System.out.print("\n\nCongrads on making "+S_formatMoney(skyNet.amountOfProfit())+
             " after paying "+S_formatMoney(DAILY_BILLS)+" in bills.\n\n");
         LaserCannon catToy = skyNet.makeDeathRay();
-        double temp = catToy.shootLaser();
-        System.out.print("\n\n\n\nthe moon is traveling at "+temp+" meters per seconds");
+        double temp = catToy.speed();
+        System.out.print("\n\nA laser mesured the distance of the moon within a "+catToy.time()+"s period finding\n"+
+                        catToy.distanceOne()+"\nand\n"+catToy.distanceTwo()+"\nthe angle between these shots was\n"+
+                        catToy.angle()+"\nWith this data the speed of the moon is "+temp+" m/s");
+        System.out.print("\n\nWe also blew up that moon, have a nice day");
     }
 }

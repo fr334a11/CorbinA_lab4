@@ -12,61 +12,62 @@ import java.util.*;
 public class LaserCannon {
     
     private final int SPEED_OF_LIGHT = 299792458;//meters per second
-    private final int EARTH_TO_MOON = 384400000;//m
+    //private final int EARTH_TO_MOON = 384400000;//m
+    private double distanceOne;
+    private double distanceTwo;
     private double time;
-    private double randTime;
     private double angle;
     //time it takes light to reach moon = 0.78 seconds
-    public LaserCannon() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("\nEnter an angle of laser in degrees: ");
-        this.angle = Double.parseDouble(input.nextLine());
+    public LaserCannon() { }
+    public double distanceOne() { return distanceOne; }
+    public double distanceTwo() { return distanceTwo; }
+    public double angle() {  return round(angle,3); }
+    public double time() { return round(time,3); }
+    public double round(double num, int zeros) {
+        int rounder=1;
+        for(int i=0;i<zeros;i++) { rounder *= 10; }//creates power to round number
+        int temp = (int)(num*rounder);
+        return (double)temp/rounder;
     }
     /**
-     * returns a very small random time
+     * returns a random time
      */
     private double randomTime(double max, double min) {
         Random rand = new Random();
-        //return randTime = rand.nextDouble()%.000001+.01;
-        return randTime = rand.nextDouble()%(max-min)+min;
+        return (rand.nextDouble()*1672)%(max-min)+min;
     }
     /**
-     * gets time from user between shots
+     * returns a random angle
      */
-    public double getTime() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("\nWhat was the time between shooting laser(seconds): ");
-        return this.time = Double.parseDouble(input.nextLine());
-    }
-    /**
-     * get degree from user
-     */
-    public /*double*/void pointAtObject() {
-        
+    private double randomAngle(double max, double min) {
+        Random rand = new Random();
+        return rand.nextDouble()%(max-min)+min;
     }
     /**
      * returns the distance the moon fragment is from the earth
      */
-    private int distanceToMoon() {
-        return (int)(SPEED_OF_LIGHT*randomTime(.010001,.01));
+    private double distanceToMoon() {
+        return (SPEED_OF_LIGHT*randomTime(.010001,.01));
     }
     /**
      * calculated the distance between 2 points
      */
-    private double calcDistance(double distanceOne, double distanceTwo, double leAngle) {
-        return Math.sqrt( distanceOne*distanceOne+distanceTwo*distanceTwo-2*distanceOne*distanceTwo*Math.cos( Math.toRadians(leAngle) ) );
+    private double calcDistance(double d1, double d2, double ang) {
+        return Math.sqrt( d1*d1+d2*d2-2*d1*d2*Math.cos( Math.toRadians(ang) ) );
     }
     /**
-     * Calcs the speed of the moon
+     * Calcs the speed of the moon.
+     * will calculate and set 2 distances and a random angle between
      */
-    public double speed(double d1, double d2, double angle) {
-        return this.calcDistance(d1,d2,angle) / this.getTime();
+    public double speed() {
+        this.distanceOne = distanceToMoon();
+        this.distanceTwo = distanceToMoon();
+        this.angle = randomAngle(180,10);
+        this.time  = randomTime(100,1);
+        return this.calcDistance(this.distanceOne,this.distanceTwo,this.angle) / this.time;
     }
     /**
      * calls and returns speed function, i guess because "shootLaser" sounds cooler
      */
-    public double shootLaser() {
-        this.pointAtObject();
-        return this.speed(distanceToMoon(),distanceToMoon(),angle);
-    }
+    public double shootLaser() { return this.speed(); }
 }
