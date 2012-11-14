@@ -8,15 +8,16 @@ import java.util.*;
  * I'm  a firing ma lazor
  */
 public class Company {
-    //public static final String NAME = "Anthony";
-    //NO STATIC METHODS IN ANYTHING (minus main)
     private String name;
     private double salePrice;
     private double sales;
     private static double manafactureCost;
     private static final int DAILY_BILLS    = 300;
     private static final int SHIPPING_COST  = 20;
+    
+    
     /**
+     * constructor for class,
      * Prompts for company name and finicial information
      */
     public Company() {
@@ -24,6 +25,9 @@ public class Company {
         System.out.print("Welcome to SkyNet's buisness start up plan,\nWhat would you like to call your company: ");
         name = input.nextLine();
     }
+    
+    
+    
     /**
      * formats doubles for formatting money rounding off to the nearest cent
      */
@@ -31,14 +35,23 @@ public class Company {
         int temp = (int)(100*(num));
         return temp/100.0;
     }
+    /**
+     * returns absoulte value of given int
+     */
     private static int abs(int num) {
         if(num<0) { return -num; }
         return num;
     }
+    /**
+     * formats given double, into $#.##
+     */
     private static String S_formatMoney(double num) {
         int temp = (int)(100*(num));
         return "$"+temp/100+"."+abs(temp - 100*((int)temp/100));
     }
+    
+    
+    
     /**
      * gets the sale price for each item from user
      */
@@ -66,6 +79,8 @@ public class Company {
         sales = Double.parseDouble(input.nextLine());
         return Company.formatMoney(sales);
     }
+    
+    
     /**
      * returns the amount that the company has made in profits
      */
@@ -78,6 +93,11 @@ public class Company {
     public LaserCannon makeDeathRay() {
         return new LaserCannon();
     }
+    
+    
+    /**
+     * main fucnction starts up company and laser
+     */
     public static void main(String[] args) {
         Company skyNet = new Company();
         skyNet.manafactureCost();
@@ -85,6 +105,8 @@ public class Company {
         skyNet.numOfSales();
         System.out.print("\n\nCongrads on making "+S_formatMoney(skyNet.amountOfProfit())+
             " after paying "+S_formatMoney(DAILY_BILLS)+" in bills.\n\n");
+        
+        //create laser
         LaserCannon catToy = skyNet.makeDeathRay();
         double temp = catToy.speed();
         System.out.print("\n\nA laser mesured the distance of the moon within a "+catToy.time()+"s period finding\n"+

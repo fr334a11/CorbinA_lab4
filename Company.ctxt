@@ -1,14 +1,16 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Company()
-comment0.text=\r\n\ Prompts\ for\ company\ name\ and\ finicial\ information\r\n
+comment0.text=\r\n\ constructor\ for\ class,\r\n\ Prompts\ for\ company\ name\ and\ finicial\ information\r\n
 comment1.params=num
 comment1.target=double\ formatMoney(double)
 comment1.text=\r\n\ formats\ doubles\ for\ formatting\ money\ rounding\ off\ to\ the\ nearest\ cent\r\n
 comment2.params=num
 comment2.target=int\ abs(int)
+comment2.text=\r\n\ returns\ absoulte\ value\ of\ given\ int\r\n
 comment3.params=num
 comment3.target=java.lang.String\ S_formatMoney(double)
+comment3.text=\r\n\ formats\ given\ double,\ into\ $\#.\#\#\r\n
 comment4.params=
 comment4.target=double\ salePrice()
 comment4.text=\r\n\ gets\ the\ sale\ price\ for\ each\ item\ from\ user\r\n
@@ -26,4 +28,5 @@ comment8.target=LaserCannon\ makeDeathRay()
 comment8.text=\r\n\ will\ create\ and\ return\ a\ laser\r\n
 comment9.params=args
 comment9.target=void\ main(java.lang.String[])
+comment9.text=\r\n\ main\ fucnction\ starts\ up\ company\ and\ laser\r\n
 numComments=10

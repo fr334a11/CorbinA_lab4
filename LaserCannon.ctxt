@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=LaserCannon()
+comment0.text=\r\n\ create\ the\ class\r\n
 comment1.params=
 comment1.target=double\ distanceOne()
 comment10.params=
@@ -17,6 +18,7 @@ comment4.params=
 comment4.target=double\ time()
 comment5.params=num\ zeros
 comment5.target=double\ round(double,\ int)
+comment5.text=\r\n\ rounds\ a\ variable\ to\ given\ deciaml\ places\r\n
 comment6.params=max\ min
 comment6.target=double\ randomTime(double,\ double)
 comment6.text=\r\n\ returns\ a\ random\ time\r\n

@@ -2,47 +2,63 @@ import java.util.*;
 /**
  * @Anthony Corbin
  * Neumont University
- * Class: Intro to Computer Sciences [section]
+ * Class: Intro to Computer Sciences
  * Quarter: 1
- * [Date]
- * [Assignment Name]
- * Description of the class: this class does stuff
  */
 //distance=rape time
 public class LaserCannon {
-    
     private final int SPEED_OF_LIGHT = 299792458;//meters per second
     //private final int EARTH_TO_MOON = 384400000;//m
     private double distanceOne;
     private double distanceTwo;
     private double time;
     private double angle;
-    //time it takes light to reach moon = 0.78 seconds
-    public LaserCannon() { }
-    public double distanceOne() { return distanceOne; }
-    public double distanceTwo() { return distanceTwo; }
-    public double angle() {  return round(angle,3); }
-    public double time() { return round(time,3); }
+    /**
+     * create the class
+     */
+    public LaserCannon() {
+        this.distanceOne = 0;
+        this.distanceTwo = 0;
+        this.time = 0;
+        this.angle = 0;
+    }
+    
+    //returning instance variables
+    public double distanceOne() { return distanceOne;    }
+    public double distanceTwo() { return distanceTwo;    }
+    public double angle()    {    return round(angle,3); }
+    public double time()     {    return round(time,3);  }
+    
+    
+    /**
+     * rounds a variable to given deciaml places
+     */
     public double round(double num, int zeros) {
         int rounder=1;
         for(int i=0;i<zeros;i++) { rounder *= 10; }//creates power to round number
-        int temp = (int)(num*rounder);
-        return (double)temp/rounder;
+        //multiplys by power, rounds off by casting to int, then divides back to orginal
+        return ((int)(num*rounder))/(double)rounder;
     }
+    
+    
+    
     /**
      * returns a random time
      */
     private double randomTime(double max, double min) {
         Random rand = new Random();
-        return (rand.nextDouble()*1672)%(max-min)+min;
+        return this.time = (rand.nextDouble()*1672)%(max-min)+min;
     }
     /**
      * returns a random angle
      */
     private double randomAngle(double max, double min) {
         Random rand = new Random();
-        return rand.nextDouble()%(max-min)+min;
+        return this.angle = rand.nextDouble()%(max-min)+min;
     }
+    
+    
+    
     /**
      * returns the distance the moon fragment is from the earth
      */
@@ -62,8 +78,8 @@ public class LaserCannon {
     public double speed() {
         this.distanceOne = distanceToMoon();
         this.distanceTwo = distanceToMoon();
-        this.angle = randomAngle(180,10);
-        this.time  = randomTime(100,1);
+        this.randomAngle(180,10);
+        this.randomTime(100,1);
         return this.calcDistance(this.distanceOne,this.distanceTwo,this.angle) / this.time;
     }
     /**
